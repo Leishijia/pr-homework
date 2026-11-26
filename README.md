@@ -19,11 +19,11 @@ pr-homework/
 `src/login.py` 提供 `verify_login(username, password)`，校验用户名与密码是否匹配，
 匹配返回 `True`，否则返回 `False`。
 
-## 已知问题（待修复）
+## 已修复问题（见 PR #2）
 
-1. **未做空值校验**：传入 `None` 或空字符串时抛出 `KeyError`，而不是返回 `False`。
-2. **用户名大小写敏感**：`Alice` 与 `alice` 被当作两个不同用户，导致正常登录被拒绝。
-3. **未知用户抛出异常**：应当返回 `False`，当前实现直接 `KeyError`。
+1. ~~**未做空值校验**：传入 `None` 或空字符串时抛出 `KeyError`。~~ 已改为返回 `False`。
+2. ~~**用户名大小写敏感**：`Alice` 无法登录。~~ 已对用户名做 `strip().lower()` 规范化。
+3. ~~**未知用户抛出异常**：直接 `KeyError`。~~ 已改为返回 `False`。
 
 ## 运行测试
 
